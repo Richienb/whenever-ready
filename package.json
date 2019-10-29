@@ -1,6 +1,6 @@
 {
     "name": "whenever-ready",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A promise that resolves when a value is set.",
     "repository": "https://github.com/Richienb/whenever-ready.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
