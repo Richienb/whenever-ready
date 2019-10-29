@@ -1,14 +1,29 @@
 /**
- * My awesome module.
- * @param input Lorem ipsum.
- * @param postfix Lorem ipsum.
+ * A promise that resolves when a value is set.
  * @example
  * ```
- * const theModule = require("the-module");
- * theModule("unicorns");
- * //=> 'unicorns & rainbows'
+ * const WhenReady = require("when-ready");
+ * const wReady = new WhenReady();
+ *
+ * whenReady.when().then(() => console.log("READY!"));
+ * whenReady.ready = true;
  * ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string;
+declare class WheneverReady {
+    /**
+     * @param ready The initial readiness value.
+    */
+    constructor(ready?: boolean)
 
-export = theModule;
+    /**
+    * The readiness.
+    */
+    public ready: boolean
+
+    /**
+    * Returns a promise that will resolve when `ready` is true.
+    */
+    public when(): Promise<void>
+}
+
+export = WheneverReady;

@@ -1,7 +1,31 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-    if (typeof input !== "string") throw new TypeError(`Expected a string, got ${typeof input}`)
+const Promise = require("bluebird")
+const _ = require("lodash")
 
-    return `${input} & ${postfix}`
+module.exports = class WheneverReady {
+    constructor(ready = false) {
+        this._ready = ready
+        this.listeners = []
+    }
+
+    get ready() {
+        return this._ready
+    }
+
+    set ready(val) {
+        this._ready = Boolean(val)
+        if (this._ready) {
+            _.forEach(this.listeners, (cb) => cb())
+            _.remove(this.listeners)
+        }
+        return this._ready
+    }
+
+    when() {
+        return new Promise((resolve) => {
+            if (this._ready === true) resolve()
+            else this.listeners.push(() => resolve())
+        })
+    }
 }

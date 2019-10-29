@@ -1,13 +1,8 @@
 import test from "ava"
-import theModule from "."
+import WheneverReady from "."
 
-test("main", (t) => {
-    t.throws(() => {
-        theModule(123)
-    }, {
-        instanceOf: TypeError,
-        message: "Expected a string, got number",
-    })
-
-    t.is(theModule("unicorns"), "unicorns & rainbows")
+test("main", async (t) => {
+    const wReady = new WheneverReady()
+    wReady.ready = true
+    await wReady.when().then(() => t.true(wReady.ready))
 })
