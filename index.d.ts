@@ -1,3 +1,5 @@
+import Promise from "bluebird"
+
 /**
  * A promise that resolves when a value is set.
  * @example
