@@ -1,33 +1,38 @@
 {
-    "name": "whenever-ready",
-    "version": "1.0.1",
-    "description": "A promise that resolves when a value is set.",
-    "repository": "https://github.com/Richienb/whenever-ready.git",
-    "author": "Richie Bendall <richiebendall@gmail.com>",
-    "license": "MIT",
-    "main": "index.js",
-    "files": [
-        "index.js",
-        "index.d.ts"
-    ],
-    "engines": {
-        "node": ">=6"
-    },
-    "scripts": {
-        "lint": "eslint .",
-        "test": "yarn lint && ava"
-    },
-    "keywords": [],
-    "dependencies": {
-        "bluebird": "^3.7.1",
-        "lodash": "^4.17.15"
-    },
-    "devDependencies": {
-        "ava": "^2.1.0",
-        "eslint": "^6.5.1",
-        "eslint-config-richienb": "^0.2.0"
-    },
-    "eslintConfig": {
-        "extends": "richienb/node"
-    }
+	"name": "whenever-ready",
+	"version": "1.0.1",
+	"description": "A promise that resolves when a value is set.",
+	"repository": "https://github.com/Richienb/whenever-ready.git",
+	"author": "Richie Bendall <richiebendall@gmail.com>",
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"lint": "xo",
+		"test": "yarn lint && ava"
+	},
+	"keywords": [
+		"ready",
+		"promise",
+		"whenever",
+		"watch"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"ava": "^3.3.0",
+		"eslint-config-richienb": "^0.3.0",
+		"xo": "^0.26.1"
+	},
+	"resolutions": {
+		"eslint": "^6.8.0"
+	},
+	"xo": {
+		"extends": "richienb/node"
+	}
 }
